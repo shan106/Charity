@@ -1,0 +1,47 @@
+<div class="form-container">
+  <h2>Nieuwe cliënt registreren</h2>
+
+  <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Naam</mat-label>
+      <input matInput name="name" [(ngModel)]="client.name" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Geboortedatum</mat-label>
+      <input matInput type="date" name="birth" [(ngModel)]="client.birth" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Adres</mat-label>
+      <input matInput name="adres" [(ngModel)]="client.adres" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Telefoon</mat-label>
+      <input
+        matInput
+        name="tel"
+        [(ngModel)]="client.tel"
+        required
+        pattern="^[0-9]{8,12}$"
+        #tel="ngModel"
+        type="tel"
+        (keypress)="allowOnlyNumbers($event)"
+      >
+      <mat-error *ngIf="tel.invalid && tel.touched">
+        Voer een geldig telefoonnummer in (8–12 cijfers, alleen nummers).
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" [(ngModel)]="client.email" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="clientForm.invalid">
+      Opslaan
+    </button>
+  </form>
+</div>
