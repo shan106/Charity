@@ -78,6 +78,11 @@ h2 {
   color: #333;
 }
 
+.place-field {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
 .register-btn {
   margin-bottom: 8px;
   width: 100%;

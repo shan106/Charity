@@ -7,11 +7,12 @@ import { MatInputModule } from '@angular/material/input';
 import { FoodPickupService } from '../services/food-pickup.service';
 import { ClientService } from '../services/client.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-food-pickup',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatIconModule, ],
+  imports: [CommonModule, FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule,MatIconModule, MatSelectModule, ],
   templateUrl: './food-pickup.component.html',
   styleUrl: './food-pickup.component.css'
 })
@@ -21,7 +22,8 @@ export class FoodPickupComponent {
   client: any = null;
   alreadyRegistered = false;
   notFound = false;
-  place = 'Centrum'; // Of laat de gebruiker kiezen/ingeven
+  places = ['Luxemburg', 'Limburg', 'Brussel', 'Antwerpen'];
+  selectedPlace = this.places[0]; // Standaard eerste plaats
 
   constructor(
     private foodPickupService: FoodPickupService,
@@ -51,10 +53,9 @@ export class FoodPickupComponent {
   }
 
   registerPickup() {
-    this.foodPickupService.registerPickup(this.client.id, this.place).subscribe(() => {
+    this.foodPickupService.registerPickup(this.client.id, this.selectedPlace).subscribe(() => {
       this.alreadyRegistered = true;
       alert('Afhaling geregistreerd!');
     });
   }
-
 }

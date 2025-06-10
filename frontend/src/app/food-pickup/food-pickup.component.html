@@ -14,7 +14,16 @@
       <mat-icon class="avatar">person</mat-icon>
       <span class="client-name">{{ client.name }}</span>
     </div>
-    <button mat-raised-button color="primary" (click)="registerPickup()" [disabled]="alreadyRegistered" class="register-btn">
+    <mat-form-field appearance="outline" class="place-field">
+      <mat-label>Plaats van afhaling</mat-label>
+      <mat-select [(ngModel)]="selectedPlace" name="selectedPlace" required>
+        <mat-option *ngFor="let p of places" [value]="p">{{ p }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary"
+      (click)="registerPickup()"
+      [disabled]="alreadyRegistered"
+      class="register-btn">
       Registreer Afhaling
     </button>
     <mat-hint *ngIf="alreadyRegistered" class="registered-hint">

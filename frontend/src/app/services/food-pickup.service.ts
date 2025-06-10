@@ -11,10 +11,14 @@ export class FoodPickupService {
 
   constructor(private http: HttpClient) {}
 
-  registerPickup(clientId: string, place: string): Observable<any> {
-    
-    return this.http.post(`${this.apiUrl}/register/${clientId}?place=${encodeURIComponent(place)}`, {});
-  }
+  registerPickup(clientId: string, place: string) {
+  return this.http.post(
+    `http://localhost:8080/foodpickups/register/${clientId}?place=${encodeURIComponent(place)}`,
+    {},
+    { responseType: 'text' }
+  );
+}
+
 
   getClientPickups(clientId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/client/${clientId}`);
