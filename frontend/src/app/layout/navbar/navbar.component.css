@@ -1,0 +1,35 @@
+/* Navigatiebalk achtergrond en schaduw */
+.mat-toolbar {
+  background-color: #1976d2; /* Material blauw */
+  color: white;
+  padding: 0 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo-stijl links */
+.logo {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: white;
+}
+
+/* Ruimte tussen logo en knoppen */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Navigatieknoppen */
+a[mat-button] {
+  color: white;
+  font-weight: 500;
+  margin-left: 12px;
+  text-transform: none;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+/* Hover effect op knoppen */
+a[mat-button]:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
