@@ -3,9 +3,12 @@ package com.example.backend.controller;
 import com.example.backend.model.FoodPickup;
 import com.example.backend.service.FoodPickupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/foodpickups")
@@ -16,8 +19,11 @@ public class FoodPickupController {
 
     // Register a food pickup for a client
     @PostMapping("/register/{clientId}")
-    public String registerPickup(@PathVariable String clientId, @RequestParam String place) {
-        return foodPickupService.registerPickup(clientId, place);
+    public ResponseEntity<Map<String, String>> registerPickup(@PathVariable String clientId, @RequestParam String place) {
+        String message = foodPickupService.registerPickup(clientId, place);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", message);
+        return ResponseEntity.ok(response);
     }
 
     // Get all pickups for a client

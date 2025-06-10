@@ -19,4 +19,9 @@ export class FoodPickupService {
   getClientPickups(clientId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/client/${clientId}`);
   }
+
+  getPickupsByMonthYear(year: number, month: number, place: string) {
+  return this.http.get<any[]>(`http://localhost:8080/foodpickups/filter?year=${year}&month=${month}&place=${encodeURIComponent(place)}`);
+}
+
 }
