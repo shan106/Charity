@@ -1,0 +1,26 @@
+<div class="food-pickup-container">
+  <h2>Voedselpakket Afhaling Registratie</h2>
+
+  <form (ngSubmit)="onSearch()" #searchForm="ngForm" class="search-bar">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Zoek op ID of Naam*</mat-label>
+      <input matInput [(ngModel)]="query" name="query" required autocomplete="off">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" class="search-btn">Zoeken</button>
+  </form>
+
+  <div *ngIf="client" class="client-card mat-elevation-z3">
+    <div class="client-info">
+      <mat-icon class="avatar">person</mat-icon>
+      <span class="client-name">{{ client.name }}</span>
+    </div>
+    <button mat-raised-button color="primary" (click)="registerPickup()" [disabled]="alreadyRegistered" class="register-btn">
+      Registreer Afhaling
+    </button>
+    <mat-hint *ngIf="alreadyRegistered" class="registered-hint">
+      Deze cliënt is vandaag al geregistreerd.
+    </mat-hint>
+  </div>
+
+  <mat-error *ngIf="notFound" class="error-msg">Geen cliënt gevonden.</mat-error>
+</div>
