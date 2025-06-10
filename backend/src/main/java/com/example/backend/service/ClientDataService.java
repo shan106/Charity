@@ -54,4 +54,10 @@ public class ClientDataService {
     public void deleteClient(String id) {
         clientDataRepository.deleteById(id);
     }
+
+    public List<ClientData> findClientsByName(String name) {
+        // Implementeer dit in je repository, bv. met JPA: findByNameContainingIgnoreCase
+        return clientDataRepository.findByNameContainingIgnoreCase(name);
+    }
+
 }

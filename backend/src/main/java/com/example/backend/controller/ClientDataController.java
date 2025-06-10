@@ -47,4 +47,25 @@ public class ClientDataController {
     public void deleteClient(@PathVariable String id) {
         clientDataService.deleteClient(id);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> searchClient(@RequestParam String query) {
+        // Eerst proberen als ID
+        Optional<ClientData> byId = clientDataService.getClientById(query);
+        if (byId.isPresent()) {
+            return ResponseEntity.ok(byId.get());
+        }
+
+        // Daarna zoeken op naam (bv. case-insensitive bevat)
+        List<ClientData> byName = clientDataService.findClientsByName(query);
+        if (!byName.isEmpty()) {
+            if (byName.size() == 1) {
+                return ResponseEntity.ok(byName.get(0));
+            } else {
+                // Optioneel: geef lijst terug als er meerdere matches zijn
+                return ResponseEntity.status(HttpStatus.MULTIPLE_CHOICES).body(byName);
+            }
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
