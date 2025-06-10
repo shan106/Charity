@@ -1,0 +1,68 @@
+/* Buitenrand voor padding */
+.table-wrapper {
+  padding: 0 24px;
+}
+
+/* Responsive padding voor mobiel */
+@media (max-width: 800px) {
+  .table-wrapper {
+    padding: 0 12px;
+  }
+}
+
+/* Material Table styling */
+.mat-elevation-z8 {
+  margin: 30px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(25, 118, 210, 0.11), 0 1.5px 8px rgba(0,0,0,0.07);
+  background: #fff;
+  max-width: 1050px;
+  width: 100%;
+}
+
+/* Header styling */
+.mat-header-row, .mat-header-cell {
+  background: #1976d2 !important;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 1.09em;
+  letter-spacing: 0.2px;
+}
+
+/* Rijen en cellen */
+.mat-row, .mat-cell {
+  font-size: 1em;
+  padding: 13px 18px !important;
+}
+
+/* Afwisseling voor de rijen */
+.mat-row:nth-child(even) {
+  background: #f4f8fb !important;
+}
+
+.mat-row:hover {
+  background: #e3edfa !important;
+  transition: background 0.16s;
+}
+
+/* Spinner en lege status netjes centreren */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 180px;
+}
+
+.no-clients {
+  text-align: center;
+  color: #888;
+  font-size: 1.1em;
+  margin-top: 32px;
+}
+
+/* Scrollen bij veel kolommen */
+.mat-table {
+  overflow-x: auto;
+  display: block;
+}

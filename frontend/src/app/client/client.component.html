@@ -1,1 +1,51 @@
-<p>client works!</p>
+<div class="table-wrapper">
+
+  <!-- Spinner -->
+  <div *ngIf="loading" class="spinner-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <!-- Material Table -->
+  <table mat-table [dataSource]="clients" class="mat-elevation-z8" *ngIf="!loading && clients.length > 0">
+
+    <!-- Naam Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Naam </th>
+      <td mat-cell *matCellDef="let client"> {{client.name}} </td>
+    </ng-container>
+
+    <!-- Geboortedatum Column -->
+    <ng-container matColumnDef="birth">
+      <th mat-header-cell *matHeaderCellDef> Geboortedatum </th>
+      <td mat-cell *matCellDef="let client"> {{client.birth}} </td>
+    </ng-container>
+
+    <!-- Adres Column -->
+    <ng-container matColumnDef="adres">
+      <th mat-header-cell *matHeaderCellDef> Adres </th>
+      <td mat-cell *matCellDef="let client"> {{client.adres}} </td>
+    </ng-container>
+
+    <!-- Telefoon Column -->
+    <ng-container matColumnDef="tel">
+      <th mat-header-cell *matHeaderCellDef> Telefoon </th>
+      <td mat-cell *matCellDef="let client"> {{client.tel}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let client"> {{client.email}} </td>
+    </ng-container>
+
+    <!-- Rijstructuur -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Geen cliënten gevonden -->
+  <div *ngIf="!loading && clients.length === 0" class="no-clients">
+    Geen cliënten gevonden.
+  </div>
+
+</div>
