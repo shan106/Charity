@@ -1,33 +1,57 @@
-HELP.md
+# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IntelliJ
+.idea/
 *.iml
 *.ipr
+*.iws
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# VS Code
 .vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.*
+*.env
+
+# Java: secrets & Firebase service accounts
+src/main/resources/firebase-service-account.json
+src/main/resources/*.json
+
+# Angular build
+dist/
+.angular/
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Angular environments
+src/environments/environment*.ts
+!src/environments/environment.ts   # (optioneel: haal ! weg als je die ook niet wilt tracken)
+
+# System files
+*.swp
+*.swo
+
+# Mac
+*.DS_Store
+
+# Linux
+*~
+
+# Windows
+*.bak
+*.tmp
+*.temp
+*.lnk

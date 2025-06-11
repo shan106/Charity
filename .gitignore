@@ -55,3 +55,4 @@ src/environments/environment*.ts
 *.tmp
 *.temp
 *.lnk
+backend/src/main/resources/firebase-service-account.json
