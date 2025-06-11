@@ -1,0 +1,57 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.*
+*.env
+
+# Java: secrets & Firebase service accounts
+src/main/resources/firebase-service-account.json
+src/main/resources/*.json
+
+# Angular build
+dist/
+.angular/
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Angular environments
+src/environments/environment*.ts
+!src/environments/environment.ts   # (optioneel: haal ! weg als je die ook niet wilt tracken)
+
+# System files
+*.swp
+*.swo
+
+# Mac
+*.DS_Store
+
+# Linux
+*~
+
+# Windows
+*.bak
+*.tmp
+*.temp
+*.lnk
