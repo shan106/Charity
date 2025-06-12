@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Klant bewerken</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Naam</mat-label>
+      <input matInput [(ngModel)]="editedClient.name" name="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Geboortedatum</mat-label>
+      <input matInput type="date" [(ngModel)]="editedClient.birth" name="birth">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Adres</mat-label>
+      <input matInput [(ngModel)]="editedClient.adres" name="adres">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Telefoon</mat-label>
+      <input matInput [(ngModel)]="editedClient.tel" name="tel">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="editedClient.email" name="email">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Annuleren</button>
+  <button mat-raised-button color="primary" (click)="save()">Opslaan</button>
+</mat-dialog-actions>
