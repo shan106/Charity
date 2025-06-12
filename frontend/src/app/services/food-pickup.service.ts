@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FoodPickupReportDTO } from '../food-pickup-report/food-pickup-report.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,8 @@ export class FoodPickupService {
   }
 
   getPickupsByMonthYear(year: number, month: number, place: string) {
-  return this.http.get<any[]>(`http://localhost:8080/foodpickups/filter?year=${year}&month=${month}&place=${encodeURIComponent(place)}`);
+  return this.http.get<FoodPickupReportDTO[]>(`http://localhost:8080/foodpickups/filter?year=${year}&month=${month}&place=${encodeURIComponent(place)}`);
 }
+
 
 }

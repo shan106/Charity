@@ -32,7 +32,7 @@
   <table mat-table [dataSource]="pickups" class="mat-elevation-z8" *ngIf="!loading && pickups.length > 0">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Naam</th>
-      <td mat-cell *matCellDef="let p">{{ p.client.name }}</td>
+      <td mat-cell *matCellDef="let p">{{ p.clientName }}</td>
     </ng-container>
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef>Afhaaldatum</th>

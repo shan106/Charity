@@ -9,6 +9,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { FoodPickupService } from '../services/food-pickup.service';
 
+export interface FoodPickupReportDTO {
+  clientName: string;
+  pickupDate: string;
+  place: string;
+}
+
 @Component({
   selector: 'app-food-pickup-report',
   standalone: true,
@@ -25,6 +31,8 @@ import { FoodPickupService } from '../services/food-pickup.service';
   templateUrl: './food-pickup-report.component.html',
   styleUrl: './food-pickup-report.component.css'
 })
+
+
 export class FoodPickupReportComponent {
 
   months = ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'];

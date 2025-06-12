@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.DTO.FoodPickupReportDTO;
 import com.example.backend.model.FoodPickup;
 import com.example.backend.service.FoodPickupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/foodpickups")
@@ -33,10 +35,19 @@ public class FoodPickupController {
     }
 
     @GetMapping("/filter")
-    public List<FoodPickup> getPickupsByYearMonthPlace(
+    public List<FoodPickupReportDTO> getPickupsByYearMonthPlace(
             @RequestParam int year,
             @RequestParam int month,
             @RequestParam String place) {
-        return foodPickupService.getPickupsByYearMonthPlace(year, month, place);
+
+        List<FoodPickup> pickups = foodPickupService.getPickupsByYearMonthPlace(year, month, place);
+
+        return pickups.stream()
+                .map(fp -> new FoodPickupReportDTO(
+                        fp.getClient() != null ? fp.getClient().getName() : "-",
+                        fp.getPickupDate() != null ? fp.getPickupDate().toString() : "",
+                        fp.getPlace()
+                ))
+                .collect(Collectors.toList());
     }
 }
