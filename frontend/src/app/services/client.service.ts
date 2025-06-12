@@ -40,6 +40,13 @@ export class ClientService {
   return this.http.get<any>(`http://localhost:8080/clients/search?query=${encodeURIComponent(query)}`);
 }
 
+updateClient(id: string, client: Client): Observable<Client> {
+    return this.http.put<Client>(`${this.apiUrl}/${id}`, client);
+  }
+
+  deleteClient(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 
 }
 
