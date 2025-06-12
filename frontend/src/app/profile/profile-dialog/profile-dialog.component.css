@@ -1,0 +1,12 @@
+.profile-info {
+  text-align: center;
+  font-size: 1.03em;
+}
+.profile-info p {
+  margin: 4px 0;
+}
+.profile-avatar {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #1976d2;
+}

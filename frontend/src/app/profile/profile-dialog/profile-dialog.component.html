@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Profielgegevens</h2>
+<mat-dialog-content>
+  <div class="profile-info">
+    <mat-icon class="profile-avatar">account_circle</mat-icon>
+    <p><strong>Naam:</strong> {{ data.displayName || '-' }}</p>
+    <p><strong>Email:</strong> {{ data.email }}</p>
+    <p><strong>Email geverifieerd:</strong> {{ data.emailVerified ? 'Ja' : 'Nee' }}</p>
+    <p><strong>UID:</strong> {{ data.uid }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Sluiten</button>
+</mat-dialog-actions>
