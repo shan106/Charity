@@ -22,7 +22,7 @@ public class FirebaseTokenFilter extends OncePerRequestFilter {
             String idToken = header.substring(7);
             try {
                 FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(idToken);
-                // Je kunt hier een custom Spring Security authentication zetten:
+
                 FirebaseAuthenticationToken authentication =
                         new FirebaseAuthenticationToken(decodedToken, null);
                 SecurityContextHolder.getContext().setAuthentication(authentication);

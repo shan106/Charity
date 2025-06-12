@@ -1,10 +1,12 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 import java.time.LocalDate;
 
@@ -31,4 +33,8 @@ public class ClientData {
     private int tel;
     @Column(name= "email")
     private String email;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<FoodPickup> foodPickups;
 }

@@ -52,3 +52,13 @@ mat-card-title {
     padding: 12px 4vw 14px 4vw;
   }
 }
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+}
+.register-link span {
+  margin-right: 6px;
+  color: #555;
+  font-size: 0.99em;
+}
+
