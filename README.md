@@ -89,7 +89,7 @@ De applicatie bestaat uit drie grote delen:
 - **Backend:** [Spring Boot 3+](https://spring.io/projects/spring-boot) (RESTful API)
 - **Database:** PostgreSQL (relationeel)
 - **Authenticatie:** [Firebase Auth](https://firebase.google.com/docs/auth) (Google)
-- **Overige tools:** GitHub voor versiebeheer, Figma voor wireframes, Visual Studio Code & IntelliJ IDEA als IDE’s
+- **Overige tools:** GitHub voor versiebeheer, AdobeXD voor wireframes, Visual Studio Code & IntelliJ IDEA als IDE’s
 
 ## User Story samenvatting
 
